@@ -17,6 +17,7 @@ pub fn read(paths: &[String]) -> Option<(String, Vec<u8>)> {
     read_as(Path::new(path), mime)
 }
 
+// The same, for a path whose MIME type the caller already has; the tests name a type without the glob table.
 pub(crate) fn read_as(path: &Path, mime: String) -> Option<(String, Vec<u8>)> {
     if format::payloads("copy", &[], "").iter().any(|(offered, _)| *offered == mime) {
         return None;

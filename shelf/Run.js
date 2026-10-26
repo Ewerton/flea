@@ -136,6 +136,7 @@ function clippedText(count) {
   return Model.fill(n === 1 ? WORDS.clippedOne : WORDS.clippedMany, Model.grouped(n))
 }
 
+// The owner's own reason when it gave one, its "flea: " prefix dropped, or the plain refusal.
 function clipFailedText(error) {
   var why = String(error || "").trim().replace(/^flea: /, "")
   return why.length > 0 ? Model.fill(WORDS.clipFailedWhy, why) : WORDS.clipFailed

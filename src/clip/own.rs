@@ -172,6 +172,7 @@ pub(crate) fn spawn_owner_with(
     spawn_owner_as(exe, op, paths, false, ready)
 }
 
+// The one spawn behind both: with_content puts the content flag ahead of the paths in the payload.
 pub(crate) fn spawn_owner_as(
     exe: &std::path::Path, op: &str, paths: &[String], with_content: bool,
     ready: impl FnOnce(&std::sync::mpsc::Receiver<Ready>) -> Result<Ready, std::sync::mpsc::RecvTimeoutError>,
